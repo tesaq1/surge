@@ -1,3 +1,4 @@
+import ('./test1.js')
 var responseJson = JSON.parse($response.body);
 
 console.log(responseJson); // 输出整个响应体以检查其结构
