@@ -1,3 +1,1 @@
-exports.hello = function() {
-    return "Hello from utils!";
-};
+$notification.post('通知', '余额', '12');
