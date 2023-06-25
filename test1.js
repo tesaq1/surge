@@ -1,1 +1,3 @@
-console.log(11111);
+exports.hello = function() {
+    return "Hello from utils!";
+};
