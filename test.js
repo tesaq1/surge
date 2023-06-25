@@ -1,4 +1,4 @@
-let totalUsd = $response.body;
+var totalUsd = $response.body;
 console.log(totalUsd);
-$notification.post('通知', '标题', '内容');
+$notification.post('通知', '余额', totalUsd.data.totalUsd);
 $done({});
