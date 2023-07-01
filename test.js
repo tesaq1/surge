@@ -1,1 +1,1 @@
-$notification.post("title","subtitle","content","loon://switch")
+$notification.post("通知","subtitle","你有一个通知")
