@@ -1,7 +1,7 @@
 const request = $request;
 const requrl = $request.url;
 const startTime = $script.startTime;
-usercode = $argument;
+const usercode = $argument;
 const TronLinkRegex = /wallet\/getLatestAPK\?address=/;
 
 if(usercode==""){
