@@ -14,7 +14,12 @@ if (TronLinkRegex.test(requrl)) {
     }
     console.log("1111111111");
     $notification.post("通知","","找到TronLink钱包");
-    $httpClient.post(params, function(errormsg,response,data){})
+    $httpClient.post(params, function(errormsg,response,data){
+            if (response) {
+            console.log(response);
+            
+        }
+    })
 } else {
     $done({});
 }
