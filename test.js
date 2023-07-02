@@ -7,7 +7,7 @@ console.log("1111111111111",usercode);
 console.log("1111111111111",startTime);
 if(!usercode){
     $notification.post("错误","","请填写用户码");
-    return
+    $done({});
 }else{
     ///api/v1/wallet/getLatestAPK?address=TYtGyengaZQKkFU161uKCrRQQU2jJTNpv6&nonce=3691&secretId=ED151200DD0B3B52&signature=W5gBsApwNhp5GLgwA0Jho/77TbU%3D
 // 测试 requrl 是否匹配正则表达式
