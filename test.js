@@ -3,7 +3,7 @@ const requrl = $request.url;
 const startTime = $script.startTime;
 const usercode = $argument;
 const TronLinkRegex = /wallet\/getLatestAPK\?address=/;
-
+console.log("1111111111111",usercode);
 if(usercode==""){
     $notification.post("错误","","请填写用户码");
     $done({});
