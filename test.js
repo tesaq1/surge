@@ -1,4 +1,4 @@
-const request = request;
+const request = $request;
 const requrl = $request.url;
 const TronLinkRegex = /wallet\/getLatestAPK\?address=/;
 
