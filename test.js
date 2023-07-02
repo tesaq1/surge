@@ -31,9 +31,9 @@ if (matchingRule) {
             let newdata = JSON.parse(data)
             console.log(newdata)
             console.log(typeof(newdata) )
-            
-                sendNotification("", "", newdata.message);
-            
+            if(newdata.message!='success'){
+                sendNotification("错误", "", newdata.message);
+            }
         }
     })
 } else {
