@@ -3,22 +3,18 @@ const requrl = $request.url;
 const headers = $request.headers;
 console.log(headers);
 console.log($request.headers['User-Agent']);
-$done({});
-const type = ['TronLink/1 CFNetwork/1408.0.4 Darwin/22.5.0','122']
-// 检查 headers 对象中是否包含 type 数组中的任何值
-const foundValue = type.find(value => {
-    // 检查每个 header 的值是否包含 type 数组中的值
-    return Object.values(headers).some(headerValue => headerValue.includes(value));
-});
+const type = ['TronLink/1 CFNetwork/1408.0.4 Darwin/22.5.0','1']
+// 获取 User-Agent 字符串
+const userAgent = headers['User-Agent'];
 
-if (foundValue) {
-    // 如果找到匹配的值，则在此处返回或处理它
-    console.log(`Found value: ${foundValue}`);
+// 检查 User-Agent 字符串是否包含 type 数组中的任何值
+const isValueInUserAgent = type.some(value => userAgent.includes(value));
+
+if (isValueInUserAgent) {
+    // 如果 User-Agent 包含 type 数组中的任何值，则在此处执行相应的操作
+    console.log('User-Agent contains a value from the type array.');
 } else {
-    console.log('No matching values found.');
+    console.log('User-Agent does not contain any values from the type array.');
 }
 
-function GetType() {
-    
-    
-}
+$done({});
