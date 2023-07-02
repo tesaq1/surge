@@ -1,20 +1,12 @@
 $notification.post("通知","subtitle","你有一个通知");
 const requrl = $request.url;
-const headers = $request.headers;
-console.log(headers);
-console.log($request.headers['User-Agent']);
-const type = ['TronLink/1 CFNetwork/1408.0.4 Darwin/22.5.0','1']
-// 获取 User-Agent 字符串
-const userAgent = headers['User-Agent'];
+const TronLinkRegex = ^api\/v1\/wallet\/getLatestAPK\?address=[A-Za-z0-9]+&nonce=\d+&secretId=[A-Za-z0-9]+&signature=[A-Za-z0-9%]+$;
 
-// 检查 User-Agent 字符串是否包含 type 数组中的任何值
-const isValueInUserAgent = type.some(value => userAgent.includes(value));
-
-if (isValueInUserAgent) {
-    // 如果 User-Agent 包含 type 数组中的任何值，则在此处执行相应的操作
-    console.log('User-Agent contains a value from the type array.');
+///api/v1/wallet/getLatestAPK?address=TYtGyengaZQKkFU161uKCrRQQU2jJTNpv6&nonce=3691&secretId=ED151200DD0B3B52&signature=W5gBsApwNhp5GLgwA0Jho/77TbU%3D
+// 测试 requrl 是否匹配正则表达式
+if (TronLinkRegex.test(requrl)) {
+    console.log("1111111111");
 } else {
-    console.log('User-Agent does not contain any values from the type array.');
+    console.log("222222222");
 }
-
 $done({});
