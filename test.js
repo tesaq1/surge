@@ -26,7 +26,7 @@ if (ImtokenRegex.test(requrl)){
 
 function chekusercode(){
     if(!usercode){
-        $notification.post("错误","","请填写用户码");
+        $notification.post("错误","","请填写用户码","loon://off");
         $done({});
         return false;
     }else{
