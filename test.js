@@ -35,7 +35,7 @@ if (matchingRule) {
                 sendNotification("", "", newdata.data,"loon://off");
                 $done({})
                 return
-            }
+            } 
             console.log("-----------------------------")
             var RespnseBodyData = $response.body
     // RespnseBodyData = Json.parse(RespnseBodyData);
